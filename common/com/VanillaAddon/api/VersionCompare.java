@@ -61,12 +61,8 @@ public class VersionCompare {
     public static String getLatestVersionFromWeb() throws Exception 
 	{
 
-		URL versionIn = new URL("https://dl.dropboxusercontent.com/u/37682543/minecraft_mods/OreChanger/Version.txt");
+		URL versionIn = new URL("https://dl.dropboxusercontent.com/u/37682543/minecraft_mods/"+Reference.MOD_NAME+"/Version.txt");
 
-		/*
-		 * Changed by Konitor
-		 * Don't access the internet on servers or closed LANs.
-		 */
 		if(VanillaAddon.checkwebversion)
 		{
 

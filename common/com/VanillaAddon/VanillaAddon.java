@@ -12,7 +12,9 @@ import java.util.logging.Level;
 import java.util.Properties;
 
 
+import com.VanillaAddon.api.VersionCompare;
 import com.VanillaAddon.Side.CommonProxy;
+import com.VanillaAddon.Side.ConnectionHandler;
 import com.VanillaAddon.core.BlockIDs;
 import com.VanillaAddon.core.Blocks;
 import com.VanillaAddon.core.ItemIDs;
@@ -34,17 +36,16 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
-@NetworkMod(clientSideRequired=true,serverSideRequired=false, channels={Reference.MOD_ID})
+@NetworkMod(clientSideRequired=true,serverSideRequired=false, channels={Reference.MOD_ID},connectionHandler=ConnectionHandler.class)
 
 public class VanillaAddon {
 	
 	@Instance
 	public static VanillaAddon instance = new VanillaAddon();
-	
-	
+
 	public static boolean checkwebversion = true;
-	@SuppressWarnings("unused")
-	private String latestVersionId =null;
+	public static boolean hasLatestVersion = true;
+	private String latestVersionId;
 	
 	@SidedProxy(clientSide = Reference.clientSide, serverSide = Reference.serverSide)
 	public static CommonProxy porxy;
@@ -70,6 +71,7 @@ public class VanillaAddon {
     		ItemIDs.doorWoodJungleItemID = c.get("Item IDs", "doorWoodJungleItemID", i++).getInt();
     		BlockIDs.doorWoodJungleID= c.get("Block IDs","doorWoodJungleID",i++).getInt();
     		BlockIDs.IrontrapDoorID=c.get("Block IDs", "IronTrapDoorID", i++).getInt();
+    		ItemIDs.NewStickID =  c.get("Item IDs", "Sticks", i++).getInt();;
 
     		checkwebversion = c.get("Settings", "Check webVersion", true).isBooleanValue();
     	}
@@ -82,7 +84,15 @@ public class VanillaAddon {
 			c.save();
 		}
     	
-    	
+    	try {
+			latestVersionId = VersionCompare.getLatestVersionFromWeb();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(VersionCompare.compare( latestVersionId, Reference.VERSION ) > 0){	
+			hasLatestVersion = false;
+		}
     	
     }
 	

@@ -5,6 +5,8 @@ import com.VanillaAddon.api.RecipeHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class VanillaAddonRecipes {
@@ -12,7 +14,32 @@ public class VanillaAddonRecipes {
 	public VanillaAddonRecipes()
 	{
 		RecipeHandler.addID(Item.doorWood.itemID);
+		RecipeHandler.addID(Item.stick.itemID);
+		
 		RecipeHandler.removeRecipes();
+		
+		OreDictionary.registerOre("stickWooden", new ItemStack(Items.NewStick,1,0));
+		OreDictionary.registerOre("stickWooden", new ItemStack(Items.NewStick,1,1));
+		OreDictionary.registerOre("stickWooden", new ItemStack(Items.NewStick,1,2));
+		OreDictionary.registerOre("cobble", Block.cobblestone);
+
+		
+		GameRegistry.addRecipe(new ItemStack(Item.stick,4), new Object[] {"#","#",'#', new ItemStack(Block.planks,1,0)});
+		GameRegistry.addRecipe(new ItemStack(Items.NewStick,4,0), new Object[] {"#","#",'#', new ItemStack(Block.planks,1,1)});
+		GameRegistry.addRecipe(new ItemStack(Items.NewStick,4,1), new Object[] {"#","#",'#', new ItemStack(Block.planks,1,2)});
+		GameRegistry.addRecipe(new ItemStack(Items.NewStick,4,2), new Object[] {"#","#",'#', new ItemStack(Block.planks,1,3)});
+
+		new ShapedOreRecipe(new ItemStack(Block.torchWood,4),new Object[]{"c","#",'#',"stickWooden",'c',Item.coal});
+		
+		//String[] m = new String[]{"plankWood","cobble","oreIron","oreDiamond","oreGold"};
+		new ShapedOreRecipe(new ItemStack(Block.torchWood,4),new Object[]{"c","#",'#',"stickWooden",'c',Item.coal});
+
+		
+		GameRegistry.addRecipe(new ItemStack(Blocks.SpruceFence,4), new Object[] {"###","###",'#', new ItemStack(Items.NewStick,1,0)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.BirchFence,4), new Object[] {"###","###",'#', new ItemStack(Items.NewStick,1,1)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.JungleFence,4), new Object[] {"###","###",'#', new ItemStack(Items.NewStick,1,2)});
+
+		
 		GameRegistry.addRecipe(new ItemStack(Item.doorWood), new Object[] {"##","##","##",'#', new ItemStack(Block.planks,1,0)});
 		GameRegistry.addRecipe(new ItemStack(Items.doorWoodSpruceItem), new Object[] {"##","##","##",'#', new ItemStack(Block.planks,1,1)});
 		GameRegistry.addRecipe(new ItemStack(Items.doorWoodBirchItem), new Object[] {"##","##","##",'#', new ItemStack(Block.planks,1,2)});
@@ -21,6 +48,25 @@ public class VanillaAddonRecipes {
 		GameRegistry.addRecipe(new ItemStack(Blocks.pressurePlateobsidian), new Object[] {
 			"##",'#',Block.obsidian
 			});
+	}
+	
+	public static void RecipesTools()
+	{
+		
+		 String[][] recipePatterns = new String[][] {{"XXX", " # ", " # "}, {"X", "#", "#"}, {"XX", "X#", " #"}, {"XX", " #", " #"}};
+	     Object[][] recipeItems = new Object[][] {{"plankWood","cobble","oreIron","oreDiamond","oreGold"}, {Item.pickaxeWood, Item.pickaxeStone, Item.pickaxeIron, Item.pickaxeDiamond, Item.pickaxeGold}, {Item.shovelWood, Item.shovelStone, Item.shovelIron, Item.shovelDiamond, Item.shovelGold}, {Item.axeWood, Item.axeStone, Item.axeIron, Item.axeDiamond, Item.axeGold}, {Item.hoeWood, Item.hoeStone, Item.hoeIron, Item.hoeDiamond, Item.hoeGold}};;
+	     for (int i = 0; i < recipeItems[0].length; ++i)
+	        {
+	            Object object = recipeItems[0][i];
+
+	            for (int j = 0; j < recipeItems.length - 1; ++j)
+	            {
+	                Item item = (Item)recipeItems[j + 1][i];
+	                new ShapedOreRecipe(new ItemStack(item), new Object[] {recipePatterns[j], '#', "stickWooden", 'X', object});
+	            }
+	        }
+	     
+	     
 	}
 
 }

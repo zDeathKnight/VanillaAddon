@@ -1,28 +1,36 @@
 package com.VanillaAddon.block;
 
-import com.VanillaAddon.core.Reference;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.IBlockAccess;
-import cpw.mods.fml.common.registry.GameRegistry;
+
+import com.VanillaAddon.core.Reference;
 
 public class BaseBlockFence extends BlockFence {
 
+	String ic;
 	public BaseBlockFence(int id, Material material) {
 		super(id, null, material);
+	}
+	public BaseBlockFence(int id, Material material , String icon) {
+		super(id, icon, material);
+		ic = icon;
 	}
 	
 	public BaseBlockFence(int id){
 		super(id, null, Material.wood);
-		GameRegistry.registerBlock(this, this.getUnlocalizedName2());
+		
 	}
 	@Override
 	public void registerIcons(IconRegister iconRegister)
     {
-        this.blockIcon = iconRegister.registerIcon(Reference.MOD_NAME+":"+this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+		if(ic !=null){
+	        this.blockIcon = iconRegister.registerIcon(ic);
+		}else{
+			this.blockIcon = iconRegister.registerIcon(Reference.MOD_NAME+":"+this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+		}
     }
 	
 	 public boolean canConnectFenceTo(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)

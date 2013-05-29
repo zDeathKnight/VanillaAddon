@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 
+import com.VanillaAddon.block.BaseBlockFence;
 import com.VanillaAddon.block.BaseBlockTrapDoor;
 import com.VanillaAddon.block.BlockBaseDoor;
 import com.VanillaAddon.block.BlockPressurePlate;
@@ -24,9 +25,15 @@ public class Blocks
 
 		pressurePlateobsidian = new BlockPressurePlate(BlockIDs.pressurePlateobsidianID, "obsidian", Material.rock, EnumMobType.players).setUnlocalizedName("ObsidianPressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
 		registerBlock(pressurePlateobsidian);
-		
 		IrontrapDoor = new BaseBlockTrapDoor(BlockIDs.IrontrapDoorID, Material.iron).setHardness(3F).setResistance(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("trapdoor_iron");
 		registerBlock(IrontrapDoor);
+		SpruceFence = new BaseBlockFence(BlockIDs.SpruceFenceID, Material.wood,"wood_spruce").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("SpruceFence");
+		registerBlock(SpruceFence);
+		BirchFence = new BaseBlockFence(BlockIDs.BirchFenceID,Material.wood,"wood_birch").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BirchFence");
+		registerBlock(BirchFence);
+		JungleFence = new BaseBlockFence(BlockIDs.JungleFenceID,Material.wood,"wood_jungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("JungleFence");
+		registerBlock(JungleFence);
+
 	}
 	
 	
@@ -37,7 +44,6 @@ public class Blocks
 		
 	
 	public static Block pressurePlateobsidian;
-	
 	public static Block SpruceFence;
 	public static Block BirchFence;
 	public static Block JungleFence;
