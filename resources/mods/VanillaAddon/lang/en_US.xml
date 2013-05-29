@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+<comment>English (en_US) Localization File</comment>
+<entry key="item.doorWoodenSpruce.name">Wooden Spruce Door</entry>
+<entry key="tile.doorWoodSpruce.name">Wooden Spruce Door</entry>
+<entry key="item.doorWoodenBirch.name">Wooden Birch Door</entry>
+<entry key="tile.doorWoodBirch.name">Wooden Birch Door</entry>
+<entry key="item.doorWoodenJungle.name">Wooden Jungle Door</entry>
+<entry key="tile.SpruceFence.name">Wooden Spruce Fence</entry>
+<entry key="tile.BirchFence.name">Wooden Birch Fence</entry>
+<entry key="tile.JungleFence.name">Wooden Jungle Fence</entry>
+<entry key="tile.OakFence.name">Wooden Oak Fence</entry>
+<entry key="tile.ObsidianPressurePlate.name">Obsidian Pressure Plate</entry>
+
+</properties>
