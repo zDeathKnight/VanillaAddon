@@ -1,6 +1,6 @@
 package com.VanillaAddon.block;
 
-import com.VanillaAddon.Reference;
+import com.VanillaAddon.core.Reference;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

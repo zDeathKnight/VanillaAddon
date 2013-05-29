@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 
+import com.VanillaAddon.block.BaseBlockTrapDoor;
 import com.VanillaAddon.block.BlockBaseDoor;
 import com.VanillaAddon.block.BlockPressurePlate;
 
@@ -23,7 +24,9 @@ public class Blocks
 
 		pressurePlateobsidian = new BlockPressurePlate(BlockIDs.pressurePlateobsidianID, "obsidian", Material.rock, EnumMobType.players).setUnlocalizedName("ObsidianPressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
 		registerBlock(pressurePlateobsidian);
-
+		
+		IrontrapDoor = new BaseBlockTrapDoor(BlockIDs.IrontrapDoorID, Material.iron).setHardness(3F).setResistance(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("trapdoor_iron");
+		registerBlock(IrontrapDoor);
 	}
 	
 	
@@ -41,6 +44,7 @@ public class Blocks
 	public static Block doorWoodSpruce;
 	public static Block doorWoodBirch;
 	public static Block doorWoodJungle;
+	public static Block IrontrapDoor;
 	
 	
 }

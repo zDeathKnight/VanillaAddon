@@ -1,9 +1,12 @@
-package com.VanillaAddon;
+package com.VanillaAddon.api;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.regex.Pattern;
+
+import com.VanillaAddon.VanillaAddon;
+import com.VanillaAddon.core.Reference;
 
 /**
  * Found at

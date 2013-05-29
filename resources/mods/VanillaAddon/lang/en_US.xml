@@ -12,5 +12,5 @@
 <entry key="tile.JungleFence.name">Wooden Jungle Fence</entry>
 <entry key="tile.OakFence.name">Wooden Oak Fence</entry>
 <entry key="tile.ObsidianPressurePlate.name">Obsidian Pressure Plate</entry>
-
+<entry key="tile.trapdoor_iron.name">Iron Trap Door</entry>
 </properties>

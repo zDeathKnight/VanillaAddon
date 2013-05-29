@@ -1,6 +1,6 @@
 package com.VanillaAddon.item;
 
-import com.VanillaAddon.Reference;
+import com.VanillaAddon.core.Reference;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;

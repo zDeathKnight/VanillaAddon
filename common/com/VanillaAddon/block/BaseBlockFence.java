@@ -1,6 +1,6 @@
 package com.VanillaAddon.block;
 
-import com.VanillaAddon.Reference;
+import com.VanillaAddon.core.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;

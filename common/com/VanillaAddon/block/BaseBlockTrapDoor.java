@@ -5,7 +5,7 @@
 
 package com.VanillaAddon.block;
 
-import com.VanillaAddon.Reference;
+import com.VanillaAddon.core.Reference;
 
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.material.Material;

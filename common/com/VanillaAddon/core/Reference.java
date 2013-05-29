@@ -1,4 +1,4 @@
-package com.VanillaAddon;
+package com.VanillaAddon.core;
 
 public class Reference {
 	

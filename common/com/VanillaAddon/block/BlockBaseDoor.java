@@ -14,9 +14,9 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.VanillaAddon.Reference;
 import com.VanillaAddon.core.Blocks;
 import com.VanillaAddon.core.Items;
+import com.VanillaAddon.core.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
