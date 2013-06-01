@@ -200,14 +200,12 @@ public class BlockFenceModtest extends Block
         //this.blockIcon = par1IconRegister.registerIcon(this.field_94464_a);
     }
     
-    @SideOnly(Side.CLIENT)
 	public Icon getIcon(int id, int meta)
 	{
 		return icons[meta];
 	}
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
 		par3List.add(new ItemStack(par1, 1, 0));
