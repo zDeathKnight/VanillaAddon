@@ -1,4 +1,5 @@
-package com.VanillaAddon.Side;
+package com.VanillaAddon.unuse;
+
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
