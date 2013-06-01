@@ -8,13 +8,14 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Level;
 import java.util.Properties;
+import java.util.logging.Level;
 
+import net.minecraftforge.common.Configuration;
 
-import com.VanillaAddon.api.VersionCompare;
 import com.VanillaAddon.Side.CommonProxy;
 import com.VanillaAddon.Side.ConnectionHandler;
+import com.VanillaAddon.api.VersionCompare;
 import com.VanillaAddon.core.BlockIDs;
 import com.VanillaAddon.core.Blocks;
 import com.VanillaAddon.core.ItemIDs;
@@ -23,7 +24,6 @@ import com.VanillaAddon.core.Reference;
 import com.VanillaAddon.core.VanillaAddonRecipes;
 import com.VanillaAddon.lang.Localizations;
 
-import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -70,8 +70,15 @@ public class VanillaAddon {
     		BlockIDs.doorWoodBirchID= c.get("Block IDs","doorWoodBirchID",i++).getInt();
     		ItemIDs.doorWoodJungleItemID = c.get("Item IDs", "doorWoodJungleItemID", i++).getInt();
     		BlockIDs.doorWoodJungleID= c.get("Block IDs","doorWoodJungleID",i++).getInt();
+    		BlockIDs.ButtonWoodSpruceID= c.get("Block IDs","ButtonWoodSpruceID",i++).getInt();
+    		BlockIDs.ButtonWoodBirchID = c.get("Block IDs","ButtonWoodBirchID",i++).getInt();
+    		BlockIDs.ButtonWoodJungleID = c.get("Block IDs","ButtonWoodJungleID",i++).getInt();
+    		BlockIDs.SprucePressurePlateID= c.get("Block IDs","SprucePressurePlateID",i++).getInt();
+    		BlockIDs.BirchPressurePlateID = c.get("Block IDs","BirchPressurePlateID",i++).getInt();
+    		BlockIDs.JunglePressurePlateID = c.get("Block IDs","JunglePressurePlateID",i++).getInt();
     		BlockIDs.IrontrapDoorID=c.get("Block IDs", "IronTrapDoorID", i++).getInt();
     		ItemIDs.NewStickID =  c.get("Item IDs", "Sticks", i++).getInt();;
+    		//BlockIDs.NewbookShelfID =c.get("Block IDs", "NewbookShelfID", i++).getInt();
 
     		checkwebversion = c.get("Settings", "Check webVersion", true).isBooleanValue();
     	}
@@ -101,8 +108,7 @@ public class VanillaAddon {
     {
 		Blocks.init();
 		new Items();
-		new VanillaAddonRecipes();
-		
+		VanillaAddonRecipes.init()		;
 		Localizations.load();
     }
 	

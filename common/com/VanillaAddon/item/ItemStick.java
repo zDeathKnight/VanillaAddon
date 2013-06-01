@@ -15,7 +15,7 @@ public class ItemStick extends ItemBase
 {
 
 	public Icon[] ic = new Icon[3];
-	public String[] i = new String[]{"stick_spruce","stick_birch","stick_jungle"};
+	public String[] i = new String[]{"spruceStick","birchStick","jungleStick"};
 	public ItemStick(int par1) {
 		super(par1);
 		this.setCreativeTab(CreativeTabs.tabMaterials);

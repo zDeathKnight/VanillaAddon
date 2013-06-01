@@ -4,10 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 
-import com.VanillaAddon.block.BaseBlockFence;
-import com.VanillaAddon.block.BaseBlockTrapDoor;
-import com.VanillaAddon.block.BlockBaseDoor;
-import com.VanillaAddon.block.BlockPressurePlate;
+import com.VanillaAddon.block.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -19,10 +16,8 @@ public class Blocks
 		registerBlock(doorWoodSpruce);
 		doorWoodBirch = new BlockBaseDoor(BlockIDs.doorWoodBirchID,  Material.wood).setUnlocalizedName("doorWoodBirch").setHardness(3.0F).setStepSound(Block.soundWoodFootstep);
 		registerBlock(doorWoodBirch);
-
 		doorWoodJungle = new BlockBaseDoor(BlockIDs.doorWoodJungleID, Material.wood).setUnlocalizedName("doorWoodJungle").setHardness(3.0F).setStepSound(Block.soundWoodFootstep);
 		registerBlock(doorWoodJungle);
-
 		pressurePlateobsidian = new BlockPressurePlate(BlockIDs.pressurePlateobsidianID, "obsidian", Material.rock, EnumMobType.players).setUnlocalizedName("ObsidianPressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
 		registerBlock(pressurePlateobsidian);
 		IrontrapDoor = new BaseBlockTrapDoor(BlockIDs.IrontrapDoorID, Material.iron).setHardness(3F).setResistance(0.7F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("trapdoor_iron");
@@ -33,7 +28,33 @@ public class Blocks
 		registerBlock(BirchFence);
 		JungleFence = new BaseBlockFence(BlockIDs.JungleFenceID,Material.wood,"wood_jungle").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("JungleFence");
 		registerBlock(JungleFence);
-
+		SpruceButton= new BlockButtonBase(BlockIDs.ButtonWoodSpruceID, "wood_spruce").setHardness(0.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("buttonSpruce");
+		registerBlock(SpruceButton);
+		BirchButton= new BlockButtonBase(BlockIDs.ButtonWoodBirchID, "wood_birch").setHardness(0.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("buttonBirch");
+		registerBlock(BirchButton);
+		JungleButton= new BlockButtonBase(BlockIDs.ButtonWoodJungleID, "wood_jungle").setHardness(0.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("buttonJungle");
+		registerBlock(JungleButton);
+		SprucePressurePlate = new BlockPressurePlate(BlockIDs.SprucePressurePlateID, "wood_spruce", Material.wood, EnumMobType.everything).setUnlocalizedName("SprucePressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
+		registerBlock(SprucePressurePlate);
+		BirchPressurePlate= new BlockPressurePlate(BlockIDs.BirchPressurePlateID, "wood_birch", Material.wood, EnumMobType.everything).setUnlocalizedName("BirchPressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
+		registerBlock(BirchPressurePlate);
+		JunglePressurePlate= new BlockPressurePlate(BlockIDs.JunglePressurePlateID, "wood_jungle", Material.wood, EnumMobType.everything).setUnlocalizedName("JunglePressurePlate").setHardness(0.5F).setStepSound(Block.soundStoneFootstep);
+		registerBlock(JunglePressurePlate);
+		
+		Block.blocksList[47]= null;
+		NewbookShelf = new BlockBookshelf(47).setHardness(1.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bookshelf");
+		GameRegistry.registerBlock(NewbookShelf, ItemBlockBookshelf.class, NewbookShelf.getUnlocalizedName2());
+		Block.blocksList[47]=NewbookShelf;
+		Block.blocksList[58]=null;
+	    workbench = new BlockWorkbenchOR(58).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("workbench");
+		GameRegistry.registerBlock(workbench, ItemBlockBookshelf.class, workbench.getUnlocalizedName2());
+		Block.blocksList[58]=workbench;
+	
+		//Block.blocksList[72]=null;
+	   // pressurePlatePlanks = (new BlockPressurePlateOR(72, Material.wood, EnumMobType.everything)).setHardness(0.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("pressurePlate");
+	    //GameRegistry.registerBlock(pressurePlatePlanks, ItemBlockBookshelf.class, pressurePlatePlanks.getUnlocalizedName2());
+		//Block.blocksList[72]=pressurePlatePlanks;
+		
 	}
 	
 	
@@ -50,7 +71,17 @@ public class Blocks
 	public static Block doorWoodSpruce;
 	public static Block doorWoodBirch;
 	public static Block doorWoodJungle;
+	public static Block SpruceButton;
+	public static Block BirchButton;
+	public static Block JungleButton;
+	public static Block SprucePressurePlate;
+	public static Block BirchPressurePlate;
+	public static Block JunglePressurePlate;
+	public static Block NewFence;
+	public static Block NewbookShelf;
 	public static Block IrontrapDoor;
+	public static Block workbench;
+	public static Block pressurePlatePlanks;
 	
 	
 }
