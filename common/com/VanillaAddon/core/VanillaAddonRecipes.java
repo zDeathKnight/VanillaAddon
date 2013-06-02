@@ -58,6 +58,7 @@ public class VanillaAddonRecipes {
 		GameRegistry.addRecipe(new ItemStack(Block.workbench,1,1), new Object[] {"##","##",'#', new ItemStack(Block.planks,1,1)});
 		GameRegistry.addRecipe(new ItemStack(Block.workbench,1,2), new Object[] {"##","##",'#', new ItemStack(Block.planks,1,2)});
 		GameRegistry.addRecipe(new ItemStack(Block.workbench,1,3), new Object[] {"##","##",'#', new ItemStack(Block.planks,1,3)});
+		GameRegistry.addSmelting(Item.rottenFlesh.itemID, new ItemStack(Items.CookedFlesh), 0.15F);
 
 
 

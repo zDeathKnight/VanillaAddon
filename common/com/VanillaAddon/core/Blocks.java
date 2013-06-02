@@ -49,7 +49,11 @@ public class Blocks
 	    workbench = new BlockWorkbenchOR(58).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("workbench");
 		GameRegistry.registerBlock(workbench, ItemBlockBookshelf.class, workbench.getUnlocalizedName2());
 		Block.blocksList[58]=workbench;
-	
+		Block.blocksList[17]=null;
+		log = new BlockLogOR(17).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("log");
+		Block.blocksList[17]=log;
+
+		
 		//Block.blocksList[72]=null;
 	   // pressurePlatePlanks = (new BlockPressurePlateOR(72, Material.wood, EnumMobType.everything)).setHardness(0.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("pressurePlate");
 	    //GameRegistry.registerBlock(pressurePlatePlanks, ItemBlockBookshelf.class, pressurePlatePlanks.getUnlocalizedName2());
@@ -82,6 +86,7 @@ public class Blocks
 	public static Block IrontrapDoor;
 	public static Block workbench;
 	public static Block pressurePlatePlanks;
+	public static Block log;
 	
 	
 }

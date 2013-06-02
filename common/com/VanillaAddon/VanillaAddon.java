@@ -77,7 +77,9 @@ public class VanillaAddon {
     		BlockIDs.BirchPressurePlateID = c.get("Block IDs","BirchPressurePlateID",i++).getInt();
     		BlockIDs.JunglePressurePlateID = c.get("Block IDs","JunglePressurePlateID",i++).getInt();
     		BlockIDs.IrontrapDoorID=c.get("Block IDs", "IronTrapDoorID", i++).getInt();
-    		ItemIDs.NewStickID =  c.get("Item IDs", "Sticks", i++).getInt();;
+    		ItemIDs.NewStickID =  c.get("Item IDs", "Sticks", i++).getInt();
+    		ItemIDs.CookedFleshID =  c.get("Item IDs", "CookedFleshID", i++).getInt();
+
     		//BlockIDs.NewbookShelfID =c.get("Block IDs", "NewbookShelfID", i++).getInt();
 
     		checkwebversion = c.get("Settings", "Check webVersion", true).isBooleanValue();
