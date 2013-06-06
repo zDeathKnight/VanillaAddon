@@ -5,8 +5,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.regex.Pattern;
 
-import com.VanillaAddon.VanillaAddon;
 import com.VanillaAddon.core.Reference;
+import com.VanillaAddon.core.Setting;
 
 /**
  * Found at
@@ -63,7 +63,7 @@ public class VersionCompare {
 
 		URL versionIn = new URL("https://dl.dropboxusercontent.com/u/37682543/minecraft_mods/"+Reference.MOD_NAME+"/Version.txt");
 
-		if(VanillaAddon.checkwebversion)
+		if(Setting.UpdateVersionCheck)
 		{
 
 	        BufferedReader in = new BufferedReader(

@@ -44,7 +44,7 @@ public class ItemFoodBase extends ItemFood
 
     public ItemFoodBase(int ID, int heal, float par3, boolean par4)
     {
-        super(ID, heal, par3, par4);
+        super(ID-256, heal, par3, par4);
         this.itemUseDuration = 32;
         this.healAmount = heal;
         this.saturationModifier = par3;

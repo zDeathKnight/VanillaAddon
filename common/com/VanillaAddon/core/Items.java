@@ -9,17 +9,21 @@ import com.VanillaAddon.item.ItemStick;
 
 public class Items 
 {	
-	public static Item doorWoodSpruceItem = new ItemBaseDoor(getItemID(ItemIDs.doorWoodSpruceItemID)).setUnlocalizedName("doorWoodenSpruce");
-	public static Item doorWoodBirchItem= new ItemBaseDoor(getItemID(ItemIDs.doorWoodBirchItemID)).setUnlocalizedName("doorWoodenBirch");
-	public static Item doorWoodJungleItem= new ItemBaseDoor(getItemID(ItemIDs.doorWoodJungleItemID)).setUnlocalizedName("doorWoodenJungle");
-	
-	public static Item NewStick = new ItemStick(getItemID(ItemIDs.NewStickID)).setUnlocalizedName("Sticks");
-	public static Item CookedFlesh = (new ItemFoodBase(getItemID(ItemIDs.CookedFleshID), 6, 0.6F, true)).setUnlocalizedName("cookedFlesh");
-	
-	public static int getItemID(int id)
+	public static void init()
 	{
-		int itemid = id -256;
-		return itemid;
-		
+		doorWoodSpruceItem = new ItemBaseDoor(ItemIDs.SpruceDoorItemID).setUnlocalizedName("doorWoodenSpruce");
+		doorWoodBirchItem= new ItemBaseDoor(ItemIDs.BirchDoorItemID).setUnlocalizedName("doorWoodenBirch");
+		doorWoodJungleItem= new ItemBaseDoor(ItemIDs.JungleDoorItemID).setUnlocalizedName("doorWoodenJungle");
+		GoldDoorItem= new ItemBaseDoor(ItemIDs.GoldDoorItemID).setUnlocalizedName("doorGold");
+		NewStick = new ItemStick(ItemIDs.NewStickID).setUnlocalizedName("Sticks");
+		CookedFlesh = new ItemFoodBase(ItemIDs.CookedFleshID, 6, 0.6F, true).setUnlocalizedName("cookedFlesh");	
 	}
+
+	public static Item doorWoodSpruceItem;
+	public static Item doorWoodBirchItem;
+	public static Item doorWoodJungleItem;
+	public static Item GoldDoorItem;
+	public static Item NewStick;
+	public static Item CookedFlesh;
+
 }

@@ -2,6 +2,7 @@ package com.VanillaAddon.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.IBlockAccess;
@@ -16,6 +17,11 @@ public class BaseBlockFence extends BlockFence {
 	}
 	public BaseBlockFence(int id, Material material , String icon) {
 		super(id, icon, material);
+		ic = icon;
+	}
+	
+	public BaseBlockFence(int id, String icon) {
+		super(id, icon, Material.wood);
 		ic = icon;
 	}
 	
@@ -37,12 +43,11 @@ public class BaseBlockFence extends BlockFence {
 	    {
 	        int l = par1IBlockAccess.getBlockId(par2, par3, par4);
 	        if(Block.blocksList[l] instanceof BlockFence) return true;
+	        if(Block.blocksList[l] instanceof BlockFenceGate) return true;
 	        	
 	        if (l != this.blockID && l != Block.fenceGate.blockID)
 	        {
 	            Block block = Block.blocksList[l];
-	            
-	            
 	            return block != null && block.blockMaterial.isOpaque() && block.renderAsNormalBlock() ? block.blockMaterial != Material.pumpkin : false;
 	        }
 	        else

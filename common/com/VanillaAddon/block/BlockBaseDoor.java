@@ -394,9 +394,9 @@ public class BlockBaseDoor extends BaseBlock
     public int idDropped(int par1, Random par2Random, int par3)
     {
          return ((par1 & 8) != 0 ? 0 : 
-        	 (this.blockID == Blocks.doorWoodSpruce.blockID ? Items.doorWoodSpruceItem.itemID :
-        	(this.blockID ==  Blocks.doorWoodBirch.blockID ?Items.doorWoodBirchItem.itemID: 
-        	(this.blockID == Blocks.doorWoodJungle.blockID ? Items.doorWoodJungleItem.itemID:0))));
+        	 (this.blockID == Blocks.SpruceDoor.blockID ? Items.doorWoodSpruceItem.itemID :
+        	(this.blockID ==  Blocks.BirchDoor.blockID ?Items.doorWoodBirchItem.itemID: 
+        	(this.blockID == Blocks.JungleDoor.blockID ? Items.doorWoodJungleItem.itemID:(this.blockID == Blocks.GoldDoor.blockID? Items.GoldDoorItem.itemID:0)))));
     }
 
     /**
@@ -451,7 +451,9 @@ public class BlockBaseDoor extends BaseBlock
     @SideOnly(Side.CLIENT)
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return Items.doorWoodBirchItem.itemID;
+        return (this.blockID == Blocks.SpruceDoor.blockID ? Items.doorWoodSpruceItem.itemID :
+        	(this.blockID ==  Blocks.BirchDoor.blockID ?Items.doorWoodBirchItem.itemID: 
+        	(this.blockID == Blocks.JungleDoor.blockID ? Items.doorWoodJungleItem.itemID:(this.blockID == Blocks.GoldDoor.blockID? Items.GoldDoorItem.itemID:0))));
     }
 
     /**

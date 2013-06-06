@@ -21,6 +21,7 @@ import com.VanillaAddon.core.Blocks;
 import com.VanillaAddon.core.ItemIDs;
 import com.VanillaAddon.core.Items;
 import com.VanillaAddon.core.Reference;
+import com.VanillaAddon.core.Setting;
 import com.VanillaAddon.core.VanillaAddonRecipes;
 import com.VanillaAddon.lang.Localizations;
 
@@ -28,9 +29,11 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -43,7 +46,6 @@ public class VanillaAddon {
 	@Instance
 	public static VanillaAddon instance = new VanillaAddon();
 
-	public static boolean checkwebversion = true;
 	public static boolean hasLatestVersion = true;
 	private String latestVersionId;
 	
@@ -60,29 +62,38 @@ public class VanillaAddon {
     	try
     	{
     		c.load();
-    		BlockIDs.pressurePlateobsidianID = c.get("Block IDs","Obsidian Pressure Plate ID", i++).getInt();
+    		BlockIDs.ObsidianPressurePlateID = c.get("Block IDs","Obsidian Pressure Plate ID", i++).getInt();
     		BlockIDs.SpruceFenceID=c.get("Block IDs", "SpruceFenceID", i++).getInt();
     		BlockIDs.BirchFenceID=c.get("Block IDs", "BirchFenceID", i++).getInt();
     		BlockIDs.JungleFenceID=c.get("Block IDs", "JungleFenceID", i++).getInt();
-    		ItemIDs.doorWoodSpruceItemID = c.get("Item IDs","doorWoodSpruceItemID",i++).getInt();
-    		BlockIDs.doorWoodSpruceID =c.get("Block IDs", "doorWoodSpruceID", i++).getInt();
-    		ItemIDs.doorWoodBirchItemID= c.get("Item IDs","doorWoodBirchItemID",i++).getInt();
-    		BlockIDs.doorWoodBirchID= c.get("Block IDs","doorWoodBirchID",i++).getInt();
-    		ItemIDs.doorWoodJungleItemID = c.get("Item IDs", "doorWoodJungleItemID", i++).getInt();
-    		BlockIDs.doorWoodJungleID= c.get("Block IDs","doorWoodJungleID",i++).getInt();
-    		BlockIDs.ButtonWoodSpruceID= c.get("Block IDs","ButtonWoodSpruceID",i++).getInt();
-    		BlockIDs.ButtonWoodBirchID = c.get("Block IDs","ButtonWoodBirchID",i++).getInt();
-    		BlockIDs.ButtonWoodJungleID = c.get("Block IDs","ButtonWoodJungleID",i++).getInt();
+    		ItemIDs.SpruceDoorItemID = c.get("Item IDs","SpruceDoorItemID",i++).getInt();
+    		BlockIDs.SpruceDoorID =c.get("Block IDs", "SpruceDoorID", i++).getInt();
+    		ItemIDs.BirchDoorItemID= c.get("Item IDs","BirchDoorItemID",i++).getInt();
+    		BlockIDs.BirchDoorID= c.get("Block IDs","BirchDoorID",i++).getInt();
+    		ItemIDs.JungleDoorItemID = c.get("Item IDs", "JungleDoorItemID", i++).getInt();
+    		BlockIDs.JungleDoorID= c.get("Block IDs","JungleDoorID",i++).getInt();
+    		BlockIDs.ButtonWoodSpruceID= c.get("Block IDs","SpruceButtonID",i++).getInt();
+    		BlockIDs.ButtonWoodBirchID = c.get("Block IDs","BirchButtonID",i++).getInt();
+    		BlockIDs.ButtonWoodJungleID = c.get("Block IDs","JungleButtonID",i++).getInt();
     		BlockIDs.SprucePressurePlateID= c.get("Block IDs","SprucePressurePlateID",i++).getInt();
     		BlockIDs.BirchPressurePlateID = c.get("Block IDs","BirchPressurePlateID",i++).getInt();
     		BlockIDs.JunglePressurePlateID = c.get("Block IDs","JunglePressurePlateID",i++).getInt();
     		BlockIDs.IrontrapDoorID=c.get("Block IDs", "IronTrapDoorID", i++).getInt();
     		ItemIDs.NewStickID =  c.get("Item IDs", "Sticks", i++).getInt();
     		ItemIDs.CookedFleshID =  c.get("Item IDs", "CookedFleshID", i++).getInt();
-
-    		//BlockIDs.NewbookShelfID =c.get("Block IDs", "NewbookShelfID", i++).getInt();
-
-    		checkwebversion = c.get("Settings", "Check webVersion", true).isBooleanValue();
+    		BlockIDs.SpruceFenceGateID=c.get("Block IDs", "SpruceFenceGateID", i++).getInt();
+    		BlockIDs.BirchFenceGateID=c.get("Block IDs", "BirchFenceGateID", i++).getInt();
+    		BlockIDs.JungleFenceGateID=c.get("Block IDs", "JungleFenceGateID", i++).getInt();
+    		BlockIDs.SpruceTrapDoorID=c.get("Block IDs", "SpruceTrapDoorID", i++).getInt();
+    		BlockIDs.BirchTrapDoorID=c.get("Block IDs", "BirchTrapDoorID", i++).getInt();
+    		BlockIDs.JungleTrapDoorID=c.get("Block IDs", "JungleTrapDoorID", i++).getInt();
+    		BlockIDs.GoldDoorID = c.get("Block IDs", "GoldDoorID", i++).getInt();
+    		ItemIDs.GoldDoorItemID = c.get("Item IDs", "GoldDoorItemID", i++).getInt();
+    		
+    		Setting.UpdateVersionCheck = c.get("Settings", "UpdateVersionCheck", true).isBooleanValue();
+    		Setting.FenceFixMod= c.get("Settings", "FenceFixMod", true).isBooleanValue();
+    		Setting.LogTreeFix= c.get("Settings", "LogTreeFix", true).isBooleanValue();
+    		
     	}
 		catch(Exception e)
 		{
@@ -109,8 +120,8 @@ public class VanillaAddon {
 	public void load(FMLInitializationEvent event) 
     {
 		Blocks.init();
-		new Items();
-		VanillaAddonRecipes.init()		;
+		Items.init();
+		VanillaAddonRecipes.init();
 		Localizations.load();
     }
 	
@@ -138,6 +149,12 @@ public class VanillaAddon {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@PostInit
+	public static void postInit(FMLPostInitializationEvent event) 
+	{
+		FMLLog.info("["+Reference.MOD_NAME+"] postInit");
 	}
 	
 	protected void loadLang()

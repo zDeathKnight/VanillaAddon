@@ -2,15 +2,18 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
 <comment>English (en_US) Localization File</comment>
-<entry key="item.doorWoodenSpruce.name">Wooden Spruce Door</entry>
-<entry key="tile.doorWoodSpruce.name">Wooden Spruce Door</entry>
-<entry key="item.doorWoodenBirch.name">Wooden Birch Door</entry>
-<entry key="tile.doorWoodBirch.name">Wooden Birch Door</entry>
-<entry key="item.doorWoodenJungle.name">Wooden Jungle Door</entry>
-<entry key="tile.SpruceFence.name">Wooden Spruce Fence</entry>
-<entry key="tile.BirchFence.name">Wooden Birch Fence</entry>
-<entry key="tile.JungleFence.name">Wooden Jungle Fence</entry>
-<entry key="tile.OakFence.name">Wooden Oak Fence</entry>
+<entry key="item.doorWoodenSpruce.name">Wooden Door</entry>
+<entry key="tile.doorWoodSpruce.name">Wooden Door</entry>
+<entry key="item.doorWoodenBirch.name">Wooden Door</entry>
+<entry key="tile.doorWoodBirch.name">Wooden Door</entry>
+<entry key="item.doorWoodenJungle.name">Wooden Door</entry>
+<entry key="tile.SpruceFence.name">Fence</entry>
+<entry key="tile.BirchFence.name">Fence</entry>
+<entry key="tile.JungleFence.name">Fence</entry>
+<entry key="tile.SpruceFenceGate.name">Fence Gate</entry>
+<entry key="tile.BirchFenceGate.name">Fence Gate</entry>
+<entry key="tile.JungleFenceGate.name">Fence Gate</entry>
+<entry key="tile.OakFence.name">Fence</entry>
 <entry key="tile.ObsidianPressurePlate.name">Pressure Plate</entry>
 <entry key="tile.SprucePressurePlate.name">Pressure Plate</entry>
 <entry key="tile.BirchPressurePlate.name">Pressure Plate</entry>
@@ -19,11 +22,11 @@
 <entry key="item.Sticks.0.name">Stick</entry>
 <entry key="item.Sticks.1.name">Stick</entry>
 <entry key="item.Sticks.2.name">Stick</entry>
-<entry key="item.newbookshelf.0.name">Bookshelf</entry>
-<entry key="item.newbookshelf.1.name">Bookshelf</entry>
-<entry key="item.newbookshelf.2.name">Bookshelf</entry>
-<entry key="item.buttonSpruce.name">Button</entry>
-<entry key="item.buttonBirch.name">Button</entry>
-<entry key="item.buttonJungle.name">Button</entry>
+<entry key="tile.buttonSpruce.name">Button</entry>
+<entry key="tile.buttonBirch.name">Button</entry>
+<entry key="tile.buttonJungle.name">Button</entry>
+<entry key="tile.spruceTrapDoor.name">Trap Door</entry>
+<entry key="tile.birchTrapDoor.name">Trap Door</entry>
+<entry key="tile.jungleTrapDoor.name">Trap Door</entry>
 <entry key="item.cookedFlesh.name">Cooked Flesh</entry>
 </properties>

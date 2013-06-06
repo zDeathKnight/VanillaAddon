@@ -5,14 +5,14 @@ import com.VanillaAddon.core.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
-public class ItemBase extends Item {
+public class newItemBase extends Item {
 
 	String iconfile;
-	public ItemBase(int id) 
+	public newItemBase(int id) 
 	{
 		super(id-256);
 	}
-	public ItemBase(int id,String icon) 
+	public newItemBase(int id,String icon) 
 	{
 		super(id-256);
 		iconfile =icon;

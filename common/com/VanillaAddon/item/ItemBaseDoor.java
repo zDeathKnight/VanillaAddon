@@ -37,16 +37,20 @@ public class ItemBaseDoor extends ItemBase
            Block block =null;
            if(this.itemID == Items.doorWoodSpruceItem.itemID)
            {
-        	   block = Blocks.doorWoodSpruce;
+        	   block = Blocks.SpruceDoor;
            }
            if(this.itemID == Items.doorWoodJungleItem.itemID)
            {
-        	   block = Blocks.doorWoodJungle;
+        	   block = Blocks.JungleDoor;
            }
            if(this.itemID == Items.doorWoodBirchItem.itemID)
            {
-        	   block = Blocks.doorWoodBirch;
+        	   block = Blocks.BirchDoor;
            }
+           if(this.itemID== Items.GoldDoorItem.itemID){
+        	   block = Blocks.GoldDoor;
+           }
+           
 
             if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
             {
