@@ -16,7 +16,6 @@ public class ItemBase extends Item {
 	{
 		super(id-256);
 		iconfile =icon;
-		
 	}
 	
 	@Override
@@ -28,9 +27,9 @@ public class ItemBase extends Item {
 	         itemIcon = iconRegister.registerIcon(Reference.MOD_NAME+":"+ getUnlocalizedName2());
 	}
 
-/**
- * Returns the unlocalized name of this item.
- */
+	/**
+	 * Returns the unlocalized name of this item.
+	 */
 	public String getUnlocalizedName2()
 	{
 		return this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1);
