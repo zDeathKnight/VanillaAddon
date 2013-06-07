@@ -1,9 +1,11 @@
-package com.VanillaAddon.unuse;
+package com.VanillaAddon.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Iterator;
 import java.util.Random;
+
+import com.VanillaAddon.TileEntity.TileEntityChestSpruce;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -34,7 +36,7 @@ public class BlockChestSpruce extends BlockContainer
     /** Determines whether of not the chest is trapped. */
     public final int isTrapped;
 
-    protected BlockChestSpruce(int par1, int par2)
+    public BlockChestSpruce(int par1, int par2)
     {
         super(par1, Material.wood);
         this.isTrapped = par2;
@@ -196,7 +198,7 @@ public class BlockChestSpruce extends BlockContainer
 
         if (par6ItemStack.hasDisplayName())
         {
-            ((TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4)).func_94043_a(par6ItemStack.getDisplayName());
+            ((TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4)).func_94043_a(par6ItemStack.getDisplayName());
         }
     }
 
@@ -358,7 +360,7 @@ public class BlockChestSpruce extends BlockContainer
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
         super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
-        TileEntityChest tileentitychest = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
+        TileEntityChestSpruce tileentitychest = (TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4);
 
         if (tileentitychest != null)
         {
@@ -371,7 +373,7 @@ public class BlockChestSpruce extends BlockContainer
      */
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
-        TileEntityChest tileentitychest = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
+    	TileEntityChestSpruce tileentitychest = (TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4);
 
         if (tileentitychest != null)
         {
@@ -443,7 +445,7 @@ public class BlockChestSpruce extends BlockContainer
      */
     public IInventory getInventory(World par1World, int par2, int par3, int par4)
     {
-        Object object = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
+        Object object = (TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4);
 
         if (object == null)
         {
@@ -477,22 +479,22 @@ public class BlockChestSpruce extends BlockContainer
         {
             if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)object);
+                object = new InventoryLargeChest("container.chestDouble", (TileEntityChestSpruce)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)object);
             }
 
             if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
+                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityChestSpruce)par1World.getBlockTileEntity(par2 + 1, par3, par4));
             }
 
             if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)object);
+                object = new InventoryLargeChest("container.chestDouble", (TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)object);
             }
 
             if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
+                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityChestSpruce)par1World.getBlockTileEntity(par2, par3, par4 + 1));
             }
 
             return (IInventory)object;
@@ -504,7 +506,7 @@ public class BlockChestSpruce extends BlockContainer
      */
     public TileEntity createNewTileEntity(World par1World)
     {
-        TileEntityChest tileentitychest = new TileEntityChest();
+    	TileEntityChestSpruce tileentitychest = new TileEntityChestSpruce();
         return tileentitychest;
     }
 
@@ -529,7 +531,7 @@ public class BlockChestSpruce extends BlockContainer
         }
         else
         {
-            int i1 = ((TileEntityChest)par1IBlockAccess.getBlockTileEntity(par2, par3, par4)).numUsingPlayers;
+            int i1 = ((TileEntityChestSpruce)par1IBlockAccess.getBlockTileEntity(par2, par3, par4)).numUsingPlayers;
             return MathHelper.clamp_int(i1, 0, 15);
         }
     }
@@ -547,10 +549,10 @@ public class BlockChestSpruce extends BlockContainer
      * Looks for a sitting ocelot within certain bounds. Such an ocelot is considered to be blocking access to the
      * chest.
      */
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes" })
 	public static boolean isOcelotBlockingChest(World par0World, int par1, int par2, int par3)
     {
-        Iterator iterator = par0World.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getAABBPool().getAABB((double)par1, (double)(par2 + 1), (double)par3, (double)(par1 + 1), (double)(par2 + 2), (double)(par3 + 1))).iterator();
+		Iterator iterator = par0World.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getAABBPool().getAABB((double)par1, (double)(par2 + 1), (double)par3, (double)(par1 + 1), (double)(par2 + 2), (double)(par3 + 1))).iterator();
         EntityOcelot entityocelot;
 
         do
@@ -594,6 +596,6 @@ public class BlockChestSpruce extends BlockContainer
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("wood_spruce");
+        this.blockIcon = par1IconRegister.registerIcon("wood");
     }
 }

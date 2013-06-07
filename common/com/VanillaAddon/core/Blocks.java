@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 
+import com.VanillaAddon.TileEntity.TileEntityChestSpruce;
 import com.VanillaAddon.block.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -65,6 +66,10 @@ public class Blocks
 		GoldDoor = new BlockBaseDoor(BlockIDs.GoldDoorID,Material.iron).setHardness(5.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("doorGold");
 		registerBlock(GoldDoor);
 
+		SpruceChest = new BlockChestSpruce(BlockIDs.SpruceChestID,0).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("SpruceChest");
+		Registry.registerBlock(SpruceChest);
+		GameRegistry.registerTileEntity(TileEntityChestSpruce.class, "TileEntityChestSpruce");
+		
 		if(Setting.FenceFixMod)
 		{
 			Block.blocksList[85] = null;
@@ -116,6 +121,10 @@ public class Blocks
 	public static Block Fence;
 	public static Block NewbookShelf;
 	public static Block IrontrapDoor;
+	public static Block SpruceChest;
+	public static Block BirchChest;
+	public static Block JungleChest;
+
 	public static Block workbench;
 	public static Block log;
 	

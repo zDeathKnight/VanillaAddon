@@ -89,7 +89,10 @@ public class VanillaAddon {
     		BlockIDs.JungleTrapDoorID=c.get("Block IDs", "JungleTrapDoorID", i++).getInt();
     		BlockIDs.GoldDoorID = c.get("Block IDs", "GoldDoorID", i++).getInt();
     		ItemIDs.GoldDoorItemID = c.get("Item IDs", "GoldDoorItemID", i++).getInt();
-    		
+    		BlockIDs.SpruceChestID = c.get("Block IDs", "SpruceChestID", i++).getInt();
+    		BlockIDs.BirchChestID = c.get("Block IDs", "BirchChestID", i++).getInt();
+    		BlockIDs.JungleChestID = c.get("Block IDs", "JungleChestID", i++).getInt();
+
     		Setting.UpdateVersionCheck = c.get("Settings", "UpdateVersionCheck", true).isBooleanValue();
     		Setting.FenceFixMod= c.get("Settings", "FenceFixMod", true).isBooleanValue();
     		Setting.LogTreeFix= c.get("Settings", "LogTreeFix", true).isBooleanValue();
@@ -119,10 +122,12 @@ public class VanillaAddon {
 	@Init
 	public void load(FMLInitializationEvent event) 
     {
+		
 		Blocks.init();
 		Items.init();
 		VanillaAddonRecipes.init();
 		Localizations.load();
+		porxy.Registry();
     }
 	
 	protected void extractLang(String[] languages)

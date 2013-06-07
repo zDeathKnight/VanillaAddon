@@ -1,4 +1,4 @@
-package com.VanillaAddon.unuse;
+package com.VanillaAddon.render;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
@@ -12,8 +12,11 @@ import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import com.VanillaAddon.TileEntity.TileEntityChestBirch;
+import com.VanillaAddon.block.BlockChestBirch;
+
 @SideOnly(Side.CLIENT)
-public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
+public class TileEntityChestBirchRender extends TileEntitySpecialRenderer
 {
     /** The normal small chest model. */
     private ModelChest chestModel = new ModelChest();
@@ -22,9 +25,10 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
     private ModelChest largeChestModel = new ModelLargeChest();
 
     /** If true, chests will be rendered with the Christmas present textures. */
-    private boolean isChristmas;
+    @SuppressWarnings("unused")
+	private boolean isChristmas;
 
-    public TileEntityChestSpruceRender()
+    public TileEntityChestBirchRender()
     {
         Calendar calendar = Calendar.getInstance();
 
@@ -37,7 +41,7 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
     /**
      * Renders the TileEntity for the chest at a position.
      */
-    public void renderTileEntityChestAt(TileEntityChestSpruce par1TileEntityChest, double par2, double par4, double par6, float par8)
+    public void renderTileEntityChestAt(TileEntityChestBirch par1TileEntityChest, double par2, double par4, double par6, float par8)
     {
         int i;
 
@@ -50,11 +54,11 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
             Block block = par1TileEntityChest.getBlockType();
             i = par1TileEntityChest.getBlockMetadata();
 
-            if (block instanceof BlockChestSpruce && i == 0)
+            if (block instanceof BlockChestBirch && i == 0)
             {
                 try
                 {
-                    ((BlockChestSpruce)block).unifyAdjacentChests(par1TileEntityChest.getWorldObj(), par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
+                    ((BlockChestBirch)block).unifyAdjacentChests(par1TileEntityChest.getWorldObj(), par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
                 }
                 catch (ClassCastException e)
                 {
@@ -77,15 +81,11 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
 
                 if (par1TileEntityChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/mods/AC/textures/blocks/frost_chest.png");
-                }
-                else if (this.isChristmas)
-                {
-                    this.bindTextureByName("/mods/AC/textures/blocks/frost_chest.png");
+                    this.bindTextureByName("/item/chests/trap_small.png");
                 }
                 else
                 {
-                    this.bindTextureByName("/mods/AC/textures/blocks/frost_chest.png");
+                    this.bindTextureByName("/mods/VanillaAddon/textures/blocks/birch_chest.png");
                 }
             }
             else
@@ -94,15 +94,11 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
 
                 if (par1TileEntityChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/mods/AC/textures/blocks/largefrostchest.png");
-                }
-                else if (this.isChristmas)
-                {
-                    this.bindTextureByName("/mods/AC/textures/blocks/largefrostchest.png");
+                    this.bindTextureByName("/item/chests/trap_large.png");
                 }
                 else
                 {
-                    this.bindTextureByName("/mods/AC/textures/blocks/largefrostchest.png");
+                    this.bindTextureByName("/mods/VanillaAddon/textures/blocks/birch_largechest.png");
                 }
             }
 
@@ -181,6 +177,6 @@ public class TileEntityChestSpruceRender extends TileEntitySpecialRenderer
 
     public void renderTileEntityAt(TileEntity par1TileEntity, double par2, double par4, double par6, float par8)
     {
-        this.renderTileEntityChestAt((TileEntityChestSpruce)par1TileEntity, par2, par4, par6, par8);
+        this.renderTileEntityChestAt((TileEntityChestBirch)par1TileEntity, par2, par4, par6, par8);
     }
 }

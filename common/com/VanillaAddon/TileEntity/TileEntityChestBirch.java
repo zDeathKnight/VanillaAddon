@@ -1,10 +1,14 @@
-package com.VanillaAddon.unuse;
+package com.VanillaAddon.TileEntity;
 
 import java.util.Iterator;
 import java.util.List;
+
+import com.VanillaAddon.block.BlockChestBirch;
+
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
@@ -13,7 +17,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
-public class TileEntityChestSpruce extends TileEntity implements IInventory
+public class TileEntityChestBirch extends TileEntity implements IInventory
 {
     private ItemStack[] chestContents = new ItemStack[36];
 
@@ -21,16 +25,16 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
     public boolean adjacentChestChecked = false;
 
     /** Contains the chest tile located adjacent to this one (if any) */
-    public TileEntityChestSpruce adjacentChestZNeg;
+    public TileEntityChestBirch adjacentChestZNeg;
 
     /** Contains the chest tile located adjacent to this one (if any) */
-    public TileEntityChestSpruce adjacentChestXPos;
+    public TileEntityChestBirch adjacentChestXPos;
 
     /** Contains the chest tile located adjacent to this one (if any) */
-    public TileEntityChestSpruce adjacentChestXNeg;
+    public TileEntityChestBirch adjacentChestXNeg;
 
     /** Contains the chest tile located adjacent to this one (if any) */
-    public TileEntityChestSpruce adjacentChestZPosition;
+    public TileEntityChestBirch adjacentChestZPosition;
 
     /** The current angle of the lid (between 0 and 1) */
     public float lidAngle;
@@ -233,7 +237,7 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
         this.adjacentChestChecked = false;
     }
 
-    private void func_90009_a(TileEntityChestSpruce par1TileEntityChest, int par2)
+    private void func_90009_a(TileEntityChestBirch par1TileEntityChest, int par2)
     {
         if (par1TileEntityChest.isInvalid())
         {
@@ -288,22 +292,22 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
 
             if (this.func_94044_a(this.xCoord - 1, this.yCoord, this.zCoord))
             {
-                this.adjacentChestXNeg = (TileEntityChestSpruce)this.worldObj.getBlockTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
+                this.adjacentChestXNeg = (TileEntityChestBirch)this.worldObj.getBlockTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
             }
 
             if (this.func_94044_a(this.xCoord + 1, this.yCoord, this.zCoord))
             {
-                this.adjacentChestXPos = (TileEntityChestSpruce)this.worldObj.getBlockTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
+                this.adjacentChestXPos = (TileEntityChestBirch)this.worldObj.getBlockTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
             }
 
             if (this.func_94044_a(this.xCoord, this.yCoord, this.zCoord - 1))
             {
-                this.adjacentChestZNeg = (TileEntityChestSpruce)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
+                this.adjacentChestZNeg = (TileEntityChestBirch)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
             }
 
             if (this.func_94044_a(this.xCoord, this.yCoord, this.zCoord + 1))
             {
-                this.adjacentChestZPosition = (TileEntityChestSpruce)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
+                this.adjacentChestZPosition = (TileEntityChestBirch)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
             }
 
             if (this.adjacentChestZNeg != null)
@@ -331,7 +335,7 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
     private boolean func_94044_a(int par1, int par2, int par3)
     {
         Block block = Block.blocksList[this.worldObj.getBlockId(par1, par2, par3)];
-        return block != null && block instanceof BlockChest ? ((BlockChest)block).isTrapped == this.func_98041_l() : false;
+        return block != null && block instanceof BlockChestBirch ? ((BlockChestBirch)block).isTrapped == this.func_98041_l() : false;
     }
 
     /**
@@ -467,7 +471,7 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
 
     public void closeChest()
     {
-        if (this.getBlockType() != null && this.getBlockType() instanceof BlockChest)
+        if (this.getBlockType() != null && this.getBlockType() instanceof BlockChestBirch)
         {
             --this.numUsingPlayers;
             this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
@@ -498,12 +502,12 @@ public class TileEntityChestSpruce extends TileEntity implements IInventory
     {
         if (this.field_94046_i == -1)
         {
-            if (this.worldObj == null || !(this.getBlockType() instanceof BlockChest))
+            if (this.worldObj == null || !(this.getBlockType() instanceof BlockChestBirch))
             {
                 return 0;
             }
 
-            this.field_94046_i = ((BlockChest)this.getBlockType()).isTrapped;
+            this.field_94046_i = ((BlockChestBirch)this.getBlockType()).isTrapped;
         }
 
         return this.field_94046_i;

@@ -24,4 +24,9 @@ public class BlockIDs
 	public static int NewbookShelfID;
 	public static int IrontrapDoorID;
 	public static int GoldDoorID;
+	public static int SpruceChestID;
+	public static int BirchChestID;
+	public static int JungleChestID;
+
+	
 }
