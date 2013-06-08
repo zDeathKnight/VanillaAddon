@@ -29,4 +29,7 @@
 <entry key="tile.birchTrapDoor.name">Trap Door</entry>
 <entry key="tile.jungleTrapDoor.name">Trap Door</entry>
 <entry key="item.cookedFlesh.name">Cooked Flesh</entry>
+<entry key="tile.jungleChest.name">Chest</entry>
+<entry key="tile.BirchChest.name">Chest</entry>
+<entry key="tile.SpruceChest.name">Chest</entry>
 </properties>

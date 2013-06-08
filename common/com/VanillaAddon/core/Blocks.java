@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 
-import com.VanillaAddon.TileEntity.TileEntityChestSpruce;
+import com.VanillaAddon.TileEntity.*;
 import com.VanillaAddon.block.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -69,6 +69,14 @@ public class Blocks
 		SpruceChest = new BlockChestSpruce(BlockIDs.SpruceChestID,0).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("SpruceChest");
 		Registry.registerBlock(SpruceChest);
 		GameRegistry.registerTileEntity(TileEntityChestSpruce.class, "TileEntityChestSpruce");
+		BirchChest = new BlockChestBirch(BlockIDs.BirchChestID,0).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BirchChest");
+		Registry.registerBlock(BirchChest);
+		GameRegistry.registerTileEntity(TileEntityChestBirch.class, "TileEntityChestBirch");
+		JungleChest = new BlockChestJungle(BlockIDs.JungleChestID,0).setHardness(2.5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("JungleChest");
+		Registry.registerBlock(JungleChest);
+		GameRegistry.registerTileEntity(TileEntityChestJungle.class, "TileEntityChestJungle");
+
+		
 		
 		if(Setting.FenceFixMod)
 		{
